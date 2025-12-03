@@ -119,6 +119,9 @@ generate: controller-gen
 docker-build: test
 	docker build --platform linux/amd64 . -t ${IMG}
 
+docker-build-arm:
+	docker build --platform linux/arm64 . -t ${IMG}
+
 # Build image for red hat certification
 docker-build-redhat:
 	docker build --platform linux/amd64 -f redhat.Dockerfile . -t ${IMG} --build-arg VERSION=${VERSION} --no-cache
