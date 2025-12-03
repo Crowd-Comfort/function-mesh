@@ -9,11 +9,23 @@ REPO_ROOT_DIR="$(pwd)"
 
 cat /etc/os-release
 
-apt update -y
-apt install -y golang-go
-apt install -y make
-apt install -y openssl
-apt install -y ca-certificates curl gnupg lsb-release
+# Amazon Linux based:
+sudo yum update -y
+sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
+sudo yum install golang -y
+go version
+
+sudo yum install -y make
+sudo yum install -y openssl
+sudo yum install -y ca-certificates curl gnupg lsb-release
+
+# Linux based:
+# apt update -y
+# apt install -y golang-go
+# apt install -y make
+# apt install -y openssl
+# apt install -y ca-certificates curl gnupg lsb-release
 
 # If we need the actual Docker CLI:
 # install -m 0755 -d /etc/apt/keyrings
