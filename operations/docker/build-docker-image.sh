@@ -11,14 +11,18 @@ cat /etc/os-release
 
 # Amazon Linux based:
 sudo yum update -y
-sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
-curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
-sudo yum install golang -y
-go version
-
 sudo yum install -y make
 sudo yum install -y openssl
 sudo yum install -y ca-certificates curl gnupg lsb-release
+
+# Go maybe already included...?
+go version
+
+# If not - you'll need to figure out how to build manually.  As of this
+# writing, the yum repo appears to be broken.
+# sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
+# curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
+# sudo yum install golang -y
 
 # Linux based:
 # apt update -y
