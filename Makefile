@@ -117,14 +117,14 @@ generate: controller-gen
 
 # Build the docker image
 docker-build: test
-	docker build --platform linux/amd64 . -t ${IMG}
+	docker build --platform linux/amd64 --build-arg TARGETOS=linux --build-arg TARGETARCH=amd64 . -t ${IMG}
 
 docker-build-arm:
-	docker build --platform linux/arm64 . -t ${IMG}
+	docker build --platform linux/arm64 --build-arg TARGETOS=linux --build-arg TARGETARCH=arm64 . -t ${IMG}
 
 # Build image for red hat certification
 docker-build-redhat:
-	docker build --platform linux/amd64 -f redhat.Dockerfile . -t ${IMG} --build-arg VERSION=${VERSION} --no-cache
+	docker build --platform linux/amd64 -f redhat.Dockerfile . -t ${IMG} --build-arg VERSION=${VERSION} --build-arg TARGETOS=linux --build-arg TARGETARCH=amd64 --no-cache
 
 # Push the docker image
 image-push:
