@@ -5,4 +5,4 @@
 # Disables reporting of slack status during build.  Please don't merge this
 # turned off to develop or master, and please reject code reviews that have
 # this off.
-export CODEBUILD_REPORT_SLACK=false
+export CODEBUILD_REPORT_SLACK=true
