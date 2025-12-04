@@ -13,7 +13,7 @@ cat /etc/os-release
 sudo yum update -y
 sudo yum install -y make
 sudo yum install -y openssl
-sudo yum install -y ca-certificates curl gnupg
+sudo yum install -y ca-certificates gnupg
 
 # Go maybe already included...?
 go version
